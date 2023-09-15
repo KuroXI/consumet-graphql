@@ -1,0 +1,185 @@
+schema {
+  query: Query
+}
+
+type Query {
+  anilist: Anilist
+}
+
+type Anilist {
+  info(id: String!) : Info
+  episodeLink(id: String!) : EpisodeLink
+  recentEpisode(page: Int, perPage: Int, provider: RecentEpisodeProvider) : RecentEpisode
+}
+
+type Info {
+  id: String
+  title: Title
+  malId: Int
+  isLicensed: Boolean
+  isAdult: Boolean
+  countryOfOrigin: String
+  image: String
+  popularity: Int
+  color: String
+  cover: String
+  description: String
+  status: String
+  releaseDate: Int
+  totalEpisodes: Int
+  currentEpisode: Int
+  rating: Int
+  duration: Int
+  season: String
+  subOrDub: String
+  type: String
+  episodes: [Episode]
+  mappings: Mapping
+  relations: [Relation]
+  characters: [Characters]
+  recommendations: [Recommendation]
+  studios: [String]
+  genres: [String]
+  endDate: EndDate
+  startDate: StartDate
+  trailer: Trailer
+  synonyms: [String]
+}
+
+type EpisodeLink {
+  headers: Header
+  sources: [Source]
+  download: String
+}
+
+type RecentEpisode {
+  currentPage: Int
+  hasNextPage: Boolean
+  totalPages: Int
+  totalResults: Int
+  results: RecentEpisodeResult
+}
+
+type RecentEpisodeResult {
+  id: String
+  malId: Int
+  image: String
+  rating: Int
+  color: String
+  episodeId: String
+  episodeTitle: String
+  episodeNumber: Int
+  type: String
+  genres: [String]
+  title: Title
+}
+
+enum RecentEpisodeProvider {
+  gogoanime
+  zoro
+}
+
+type Title {
+  romaji: String
+  english: String
+  native: String
+  userPreferred: String
+}
+
+type Episode {
+  id: String
+  title: String
+  description: String
+  number: Int
+  image: String
+  airDate: String
+}
+
+type Mapping {
+  mal: Int
+  anidb: Int
+  kitsu: Int
+  anilist: Int
+  thetvdb: Int
+  anisearch: Int
+  livechart: Int
+  notifymoe: String
+  animeplanet: String
+}
+
+type Relation {
+  id: Int
+  relationType: String
+  malId: Int
+  status: String
+  episodes: String
+  image: String
+  color: String
+  type: String
+  cover: String
+  rating: Int
+  title: Title
+}
+
+type Name {
+  first: String
+  last: String
+  full: String
+  native: String
+  userPreferred: String
+}
+
+type VoiceActors {
+  id: Int
+  language: String
+  image: String
+  name: Name
+}
+
+type Characters {
+  id: Int
+  role: String
+  image: String
+  voiceActors: [VoiceActors]
+  name: Name
+}
+
+type Recommendation {
+  id: Int
+  malId: Int
+  status: String
+  episodes: Int
+  image: String
+  cover: String
+  rating: Int
+  type: String
+  title: Title
+}
+
+type EndDate {
+  year: Int
+  month: Int
+  day: Int
+}
+
+type StartDate {
+  year: Int
+  month: Int
+  day: Int
+}
+
+type Trailer {
+  id: String
+  site: String
+  thumbnail: String
+}
+
+type Header {
+  Referer: String
+}
+
+type Source {
+  url: String
+  isM3U8: Boolean
+  quality: String
+}
