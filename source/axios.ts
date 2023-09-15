@@ -1,6 +1,6 @@
 import axios from "axios";
-
+import "dotenv/config";
 export const axiosInstance = axios.create({
-  baseURL: "https://api.consumet.org", //"https://kurebiverse-consumet.vercel.app",
+  baseURL: process.env.CONSUMET_API,
   method: "GET"
 })
