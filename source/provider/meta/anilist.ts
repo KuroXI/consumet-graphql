@@ -1,5 +1,4 @@
 import {axiosInstance} from "../../axios";
-
 export async function getInfo({ id }) {
   const { data } = await axiosInstance(`/meta/anilist/info/${id}`);
   return data;
