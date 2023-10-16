@@ -7,9 +7,13 @@ type Query {
 }
 
 type Anilist {
-  info(id: String!) : Info
-  episodeLink(id: String!) : EpisodeLink
-  recentEpisode(page: Int, perPage: Int, provider: RecentEpisodeProvider) : RecentEpisode
+  info(id: String!): Info
+  episodeLink(id: String!): EpisodeLink
+  recentEpisode(
+    page: Int
+    perPage: Int
+    provider: RecentEpisodeProvider
+  ): RecentEpisode
 }
 
 type Info {
