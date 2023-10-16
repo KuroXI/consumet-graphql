@@ -23,20 +23,3 @@ export async function getPopular({ page, perPage }) {
   );
   return data;
 }
-
-// ! BUG
-// export async function getRecentEpisode({
-//   page,
-//   perPage,
-//   provider,
-// }: RecentEpisodeProps) {
-//   const response = await anilist.fetchRecentEpisodes(
-//     (provider = "gogoanime"),
-//     page,
-//     perPage
-//   );
-
-//   console.log(response);
-
-//   return response;
-// }
