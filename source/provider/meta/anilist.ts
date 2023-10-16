@@ -1,19 +1,42 @@
 import { axiosInstance } from "../../axios";
-export async function getInfo({ id }) {
+
+export async function getInfo({ id }: { id: string }) {
   const { data } = await axiosInstance(`/meta/anilist/info/${id}`);
   return data;
 }
 
-export async function getEpisodeLink({ id }) {
+export async function getEpisodeLink({ id }: { id: string }) {
   const { data } = await axiosInstance(`/meta/anilist/watch/${id}`);
   return data;
 }
 
-export async function getRecentEpisode({ page, perPage, provider }) {
+export async function getTrending({ page, perPage }) {
   const { data } = await axiosInstance(
-    `meta/anilist/recent-episodes?page=${page || 1}&perPage=${
-      perPage || 20
-    }&provider=${provider || "gogoanime"}`
+    `/meta/anilist/trending?page=${page || 1}&perPage=${perPage || 20}`
   );
   return data;
 }
+
+export async function getPopular({ page, perPage }) {
+  const { data } = await axiosInstance(
+    `/meta/anilist/popular?page=${page || 1}&perPage=${perPage || 20}`
+  );
+  return data;
+}
+
+// ! BUG
+// export async function getRecentEpisode({
+//   page,
+//   perPage,
+//   provider,
+// }: RecentEpisodeProps) {
+//   const response = await anilist.fetchRecentEpisodes(
+//     (provider = "gogoanime"),
+//     page,
+//     perPage
+//   );
+
+//   console.log(response);
+
+//   return response;
+// }
