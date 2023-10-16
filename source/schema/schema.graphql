@@ -8,12 +8,9 @@ type Query {
 
 type Anilist {
   info(id: String!): Info
+  trending(page: Int, perPage: Int): Trending
+  popular(page: Int, perPage: Int): Popular
   episodeLink(id: String!): EpisodeLink
-  recentEpisode(
-    page: Int
-    perPage: Int
-    provider: RecentEpisodeProvider
-  ): RecentEpisode
 }
 
 type Info {
@@ -50,37 +47,44 @@ type Info {
   synonyms: [String]
 }
 
-type EpisodeLink {
-  headers: Header
-  sources: [Source]
-  download: String
-}
-
-type RecentEpisode {
+interface Meta {
   currentPage: Int
   hasNextPage: Boolean
-  totalPages: Int
-  totalResults: Int
-  results: RecentEpisodeResult
 }
 
-type RecentEpisodeResult {
+type Popular {
+  currentPage: Int
+  hasNextPage: Boolean
+  results: [InfoList]
+}
+
+type Trending {
+  currentPage: Int
+  hasNextPage: Boolean
+  results: [InfoList]
+}
+
+type InfoList {
   id: String
   malId: Int
   image: String
+  description: String
+  status: String
+  cover: String
   rating: Int
+  releaseDate: Int
   color: String
-  episodeId: String
-  episodeTitle: String
-  episodeNumber: Int
+  totalEpisodes: Int
+  duration: Int
   type: String
   genres: [String]
   title: Title
 }
 
-enum RecentEpisodeProvider {
-  gogoanime
-  zoro
+type EpisodeLink {
+  headers: Header
+  sources: [Source]
+  download: String
 }
 
 type Title {

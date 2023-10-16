@@ -1,7 +1,8 @@
 import {
   getEpisodeLink,
   getInfo,
-  getRecentEpisode,
+  getPopular,
+  getTrending,
 } from "./provider/meta/anilist";
 
 export const resolver = {
@@ -9,7 +10,7 @@ export const resolver = {
   anilist: {
     info: async ({ id }) => await getInfo({ id }),
     episodeLink: async ({ id }) => await getEpisodeLink({ id }),
-    recentEpisode: async ({ page, perPage, provider }) =>
-      await getRecentEpisode({ page, perPage, provider }),
+    trending: async ({ page, perPage }) => await getTrending({ page, perPage }),
+    popular: async ({ page, perPage }) => await getPopular({ page, perPage }),
   },
 };
