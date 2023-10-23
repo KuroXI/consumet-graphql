@@ -24,9 +24,7 @@ jobs:
           node-version: 18
 
       - name: Installing Node Dependencies
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
+        run: npm ci
 
       - name: Dog is reviewing
         uses: reviewdog/action-eslint@v1
