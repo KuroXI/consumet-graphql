@@ -24,7 +24,7 @@ jobs:
           node-version: 18
 
       - name: Installing Node Dependencies
-        run: pnpm install --frozen-lockfile
+        uses: pnpm/action-setup@v2
 
       - name: Dog is reviewing
         uses: reviewdog/action-eslint@v1
