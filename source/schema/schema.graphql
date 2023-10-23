@@ -7,10 +7,11 @@ type Query {
 }
 
 type Anilist {
-  info(id: String!): Info
-  trending(page: Int, perPage: Int): Trending
-  popular(page: Int, perPage: Int): Popular
-  episodeLink(id: String!): EpisodeLink
+  getInfo(id: String!): Info
+  getTrending(page: Int, perPage: Int): Trending
+  getPopular(page: Int, perPage: Int): Popular
+  getEpisodeLink(id: String!): EpisodeLink
+  getRandom : Info
 }
 
 type Info {
