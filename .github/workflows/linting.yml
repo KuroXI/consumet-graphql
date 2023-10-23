@@ -25,6 +25,8 @@ jobs:
 
       - name: Installing Node Dependencies
         uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Dog is reviewing
         uses: reviewdog/action-eslint@v1
