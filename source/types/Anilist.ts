@@ -1,4 +1,9 @@
-export type AiringSchedule = {
+export type SearchProps = {
+  query: string;
+  page?: number;
+};
+
+export type AiringScheduleProps = {
   page?: number;
   perPage?: number;
   weeekStart?: string;

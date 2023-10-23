@@ -5,18 +5,25 @@ import {
   getPopular,
   getRandom,
   getTrending,
+  search,
 } from "./provider/meta/anilist";
-import { AiringSchedule } from "./types/Anilist";
 
 export const resolver = {
   // META ANILIST
   anilist: {
+    search: async ({ query, page }) => await search({ query, page }),
+
     getInfo: async ({ id }) => await getInfo({ id }),
+
     getEpisodeLink: async ({ id }) => await getEpisodeLink({ id }),
+
     getTrending: async ({ page, perPage }) => await getTrending({ page, perPage }),
+
     getPopular: async ({ page, perPage }) => await getPopular({ page, perPage }),
+
     getRandom: async () => await getRandom(),
-    getAiringSchedule: async (props: AiringSchedule) =>
-      await getAiringSchedule(props),
+
+    getAiringSchedule: async ({ page, perPage, weeekStart, weekEnd, notYetAired }) =>
+      await getAiringSchedule({ page, perPage, weeekStart, weekEnd, notYetAired }),
   },
 };
