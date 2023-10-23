@@ -1,12 +1,13 @@
 name: Linting Stage
-on: [pull_request]
+on:
+  pull_request:
+    branches: [main]
 
 jobs:
   eslint:
     name: eslint
     runs-on: ubuntu-latest
     permissions:
-      checks: write
       contents: read
       pull-requests: write
     steps:
@@ -25,3 +26,4 @@ jobs:
         uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
