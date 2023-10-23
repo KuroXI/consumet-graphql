@@ -7,11 +7,18 @@ type Query {
 }
 
 type Anilist {
+  search(query: String!, page: Int): Search
   getInfo(id: String!): Info
   getTrending(page: Int, perPage: Int): Trending
   getPopular(page: Int, perPage: Int): Popular
   getEpisodeLink(id: String!): EpisodeLink
-  getRandom : Info
+  getRandom: Info
+}
+
+type Search {
+  currentPage: Int
+  hasNextPage: Boolean
+  results: [SearchResult]
 }
 
 type Info {
@@ -48,38 +55,52 @@ type Info {
   synonyms: [String]
 }
 
-interface Meta {
-  currentPage: Int
-  hasNextPage: Boolean
-}
-
 type Popular {
   currentPage: Int
   hasNextPage: Boolean
-  results: [InfoList]
+  results: [PopularTrending]
 }
 
 type Trending {
   currentPage: Int
   hasNextPage: Boolean
-  results: [InfoList]
+  results: [PopularTrending]
 }
 
-type InfoList {
+type PopularTrending {
   id: String
-  malId: Int
+  malId: String
+  title: Title
   image: String
+  trailer: Trailer
   description: String
   status: String
   cover: String
   rating: Int
   releaseDate: Int
   color: String
+  genres: [String]
   totalEpisodes: Int
   duration: Int
   type: String
-  genres: [String]
+}
+
+type SearchResult {
+  id: String
+  malId: String
   title: Title
+  status: String
+  image: String
+  cover: String
+  popularity: Int
+  description: String
+  rating: Int
+  genres: [String]
+  color: String
+  totalEpisodes: Int
+  currentEpisodeCount: Int
+  type: String
+  releaseDate: Int
 }
 
 type EpisodeLink {

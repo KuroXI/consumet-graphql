@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./dist/index.js",
     "dev": "nodemon --watch source ./source/index.ts",
-    "test": "ts-node ./source/index.ts",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build": "tsc"
   },
   "engines": {
@@ -17,6 +17,7 @@
   "author": "Victor Gonzales (KuroXI)",
   "license": "MIT",
   "dependencies": {
+    "@fastify/cors": "^8.4.0",
     "axios": "^1.5.1",
     "dotenv": "^16.3.1",
     "fastify": "^4.24.2",

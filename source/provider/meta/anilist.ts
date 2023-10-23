@@ -1,6 +1,15 @@
 import { axiosInstance } from "../../axios";
-import { AiringSchedule } from "../../types/Anilist";
+import { AiringScheduleProps, SearchProps } from "../../types/Anilist";
 import "dotenv/config";
+
+export async function search({ query, page }: SearchProps) {
+  const { data } = await axiosInstance(`/meta/anilist/${query}`, {
+    params: {
+      page: page ?? 1,
+    },
+  });
+  return data;
+}
 
 export async function getInfo({ id }: { id: string }) {
   const { data } = await axiosInstance(`/meta/anilist/info/${id}`);
@@ -43,7 +52,7 @@ export async function getAiringSchedule({
   weeekStart,
   weekEnd,
   notYetAired,
-}: AiringSchedule) {
+}: AiringScheduleProps) {
   const { data } = await axiosInstance("/meta/anilist/airing-schedule", {
     params: {
       page: page ?? 1,
