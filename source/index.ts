@@ -25,6 +25,7 @@ fastify.route({
   }),
 });
 
-fastify.listen({ port: PORT as number }, () => {
+fastify.listen({ port: PORT as number }, (err) => {
+  if (err) return console.error(err);
   console.log(`Server is online: http://localhost:${PORT}${graphQLRoute}`);
 });
