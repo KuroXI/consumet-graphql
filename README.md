@@ -1,6 +1,8 @@
 
 # consumet-graphql
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=KuroXI_consumet-graphql)](https://sonarcloud.io/summary/new_code?id=KuroXI_consumet-graphql)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=KuroXI_consumet-graphql&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=KuroXI_consumet-graphql)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=KuroXI_consumet-graphql&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=KuroXI_consumet-graphql)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=KuroXI_consumet-graphql&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=KuroXI_consumet-graphql)
 
 ## Description
 
@@ -9,8 +11,6 @@ I integrated a REST API with GraphQL to improve data retrieval and manipulation 
 We built this project because REST APIs have a fixed structure for data retrieval, and we needed a more dynamic way to fetch and modify data according to our application's evolving requirements.
 
 The problem it solves is that it allows us to customize data requests and responses, reducing over-fetching or under-fetching of data. With GraphQL, clients can request only the specific data they need, reducing the load on the server and improving performance.
-
-Through this project, I learned how to set up a GraphQL server and define schemas, resolvers, and queries. I also gained insights into the benefits of GraphQL in terms of data flexibility and efficiency. It was a valuable experience in working with modern API technologies and improving the overall performance and user experience of our web application.
 
 ## Installation
 
