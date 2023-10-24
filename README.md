@@ -30,6 +30,12 @@ To start the development server and view the website locally, run the following 
 npm run dev
 ```
 
+
+### Vercel
+Host your own instance of Consumet GraphQL on Vercel using the button below.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/KuroXI/consumet-graphql)
+
 ## License
 
 This project is licensed under the [GPL-3.0 license](https://github.com/KuroXI/consumet-graphql/blob/main/LICENSE).
