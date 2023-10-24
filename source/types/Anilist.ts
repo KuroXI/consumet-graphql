@@ -3,6 +3,11 @@ export type SearchProps = {
   page?: number;
 };
 
+export type TrendingPopularProps = {
+  page: number;
+  perPage: number;
+};
+
 export type AiringScheduleProps = {
   page?: number;
   perPage?: number;

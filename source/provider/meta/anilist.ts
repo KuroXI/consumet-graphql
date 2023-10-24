@@ -1,5 +1,9 @@
 import { axiosInstance } from "../../axios";
-import { AiringScheduleProps, SearchProps } from "../../types/Anilist";
+import {
+  AiringScheduleProps,
+  SearchProps,
+  TrendingPopularProps,
+} from "../../types/Anilist";
 import "dotenv/config";
 
 export async function search({ query, page }: SearchProps) {
@@ -21,7 +25,7 @@ export async function getEpisodeLink({ id }: { id: string }) {
   return data;
 }
 
-export async function getTrending({ page, perPage }) {
+export async function getTrending({ page, perPage }: TrendingPopularProps) {
   const { data } = await axiosInstance("/meta/anilist/trending", {
     params: {
       page: page ?? 1,
@@ -31,7 +35,7 @@ export async function getTrending({ page, perPage }) {
   return data;
 }
 
-export async function getPopular({ page, perPage }) {
+export async function getPopular({ page, perPage }: TrendingPopularProps) {
   const { data } = await axiosInstance("/meta/anilist/popular", {
     params: {
       page: page ?? 1,
